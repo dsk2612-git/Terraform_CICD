@@ -14,14 +14,14 @@ pipeline {
         }
          stage('plan') {
             steps {
-                sh 'terraform plan'
+                sh 'terraform ${action}'
             }
          }
-        stage('plan') {
-            steps {
-                sh 'terraform ${action} -auto-approve'
-            }
-        }
+        // stage('apply') {
+        //     steps {
+        //         sh 'terraform ${action} -auto-approve'
+        //     }
+        // }
 }
 }
 
