@@ -16,10 +16,12 @@ pipeline {
             steps {
                 sh 'terraform plan'
             }
+         }
         stage('plan') {
             steps {
                 sh 'terraform ${action}'
             }
         }
-    }
 }
+}
+
