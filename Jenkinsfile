@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     stages {
-        // stage('clone') {
-        //     steps {
-        //       git branch: 'main', url: 'https://github.com/dsk2612-git/Terraform_CICD.git'
-        //     }
-        // }
+        stage('clone') {
+            steps {
+              git branch: 'main', url: 'https://github.com/dsk2612-git/Terraform_CICD.git'
+            }
+        }
         stage('init') {
             steps {
                 sh 'terraform init'
@@ -17,11 +17,11 @@ pipeline {
                 sh 'terraform ${action}'
             }
          }
-        // stage('apply') {
-        //     steps {
-        //         sh 'terraform ${action} -auto-approve'
-        //     }
-        // }
+        stage('apply') {
+            steps {
+                sh 'terraform ${action} -auto-approve'
+            }
+        }
 }
 }
 
